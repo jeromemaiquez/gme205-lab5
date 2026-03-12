@@ -1,0 +1,178 @@
+[
+  {
+    "type": "Parcel",
+    "parcel_id": 101,
+    "attributes": {
+      "zone": "Residential",
+      "is_active": true,
+      "area_sqm": 2500
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            121.0583,
+            14.6545
+          ],
+          [
+            121.0589,
+            14.6545
+          ],
+          [
+            121.0589,
+            14.655
+          ],
+          [
+            121.0583,
+            14.655
+          ],
+          [
+            121.0583,
+            14.6545
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Parcel",
+    "parcel_id": 102,
+    "attributes": {
+      "zone": "Industrial",
+      "is_active": false,
+      "area_sqm": 4300
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            121.0594,
+            14.6542
+          ],
+          [
+            121.06,
+            14.6542
+          ],
+          [
+            121.06,
+            14.6547
+          ],
+          [
+            121.0594,
+            14.6547
+          ],
+          [
+            121.0594,
+            14.6542
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Building",
+    "building_id": "B201",
+    "floors": 3,
+    "usage": "Commercial",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            121.0575,
+            14.6538
+          ],
+          [
+            121.0579,
+            14.6538
+          ],
+          [
+            121.0579,
+            14.6541
+          ],
+          [
+            121.0575,
+            14.6541
+          ],
+          [
+            121.0575,
+            14.6538
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Building",
+    "building_id": "B202",
+    "floors": 6,
+    "usage": "Office",
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            121.0588,
+            14.6537
+          ],
+          [
+            121.0592,
+            14.6537
+          ],
+          [
+            121.0592,
+            14.654
+          ],
+          [
+            121.0588,
+            14.654
+          ],
+          [
+            121.0588,
+            14.6537
+          ]
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Road",
+    "road_id": "R301",
+    "name": "University Avenue",
+    "width": 8,
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          121.0568,
+          14.655
+        ],
+        [
+          121.0595,
+          14.655
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Road",
+    "road_id": "R302",
+    "name": "Campus Loop",
+    "width": 6,
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          121.057,
+          14.654
+        ],
+        [
+          121.0598,
+          14.654
+        ]
+      ]
+    }
+  }
+]
