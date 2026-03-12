@@ -1,5 +1,5 @@
-from shapely.geometry import LineString
-from shapely.geometry import Polygon
+from shapely.geometry import LineString as ShapelyLineString
+from shapely.geometry import Polygon as ShapelyPolygon
 from math import cos, radians
 
 class SpatialObject:
@@ -28,15 +28,8 @@ class SpatialObject:
         return area_deg2 * meters_per_deg_lat**2
 
 
-class Parcel(SpatialObject):
-    """
-    Specific, surveyed, and registered unit of land.
-    Has defined boundaries often identified in land registration 
-    systems for ownership, taxation, or development purposes.
-    """
-
-    def __init__(self, parcel_id: int, geometry: dict, zone: str, is_active: bool, area_sqm: float):
-
+class Polygon(SpatialObject):
+    def __init__(self, geometry: dict):
         self.geometry_type = "Polygon"
         self.geometry_coords = geometry["coordinates"]
         self.shell = geometry["coordinates"][0]
@@ -47,10 +40,22 @@ class Parcel(SpatialObject):
             self.holes = None
 
         if geometry["type"] == self.geometry_type:
-            polygon = Polygon(self.shell, self.holes)
+            polygon = ShapelyPolygon(self.shell, self.holes)
             super().__init__(polygon)
         else:
-            raise TypeError("Parcel geometry must be Polygon.")
+            raise TypeError("Geometry type must be Polygon.")
+
+
+class Parcel(Polygon):
+    """
+    Specific, surveyed, and registered unit of land.
+    Has defined boundaries often identified in land registration 
+    systems for ownership, taxation, or development purposes.
+    """
+
+    def __init__(self, parcel_id: int, geometry: dict, zone: str, is_active: bool, area_sqm: float):
+        
+        super().__init__(geometry)
         
         self.id = parcel_id
         self.zone = zone
@@ -78,3 +83,14 @@ class Parcel(SpatialObject):
     def effective_area(self):
         return SpatialObject.deg2_to_m2(self.geometry.area)
         # return self.geometry.area
+
+
+class Building(SpatialObject):
+    """
+    Three-dimensional physical structure erected above or below grade,
+    forming part of developed lot for habitation or other uses.
+    Typically a permanent, roofed, and walled structure.
+    """
+
+    def __init__(self, building_id: int, geometry: dict, floors: int, usage: str):
+        pass
